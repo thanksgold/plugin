@@ -1,6 +1,6 @@
 {
   "name": "@ali.bakhodirov/plugin-chart-traffic-lights",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Superset Chart - Traffic Lights",
   "sideEffects": false,
   "main": "lib/index.js",
