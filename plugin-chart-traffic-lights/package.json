@@ -1,8 +1,10 @@
 {
   "name": "@ali.bakhodirov/plugin-chart-traffic-lights",
-  "version": "0.1.0",
+  "version": "0.4.0",
   "description": "Superset Chart - Traffic Lights",
-  "sideEffects": false,
+  "sideEffects": [
+    "*.css"
+  ],
   "main": "lib/index.js",
   "module": "esm/index.js",
   "files": [
@@ -26,20 +28,15 @@
     "access": "public"
   },
   "dependencies": {
-    "@superset-ui/core": "^0.15.2",
-    "@superset-ui/chart-controls": "^0.15.2"
+    "@data-ui/xy-chart": "^0.0.84",
+    "@superset-ui/chart-controls": "0.17.2",
+    "@superset-ui/core": "0.17.1",
+    "@types/d3-color": "^1.2.2",
+    "@types/shortid": "^0.0.29",
+    "d3-color": "^1.2.3",
+    "shortid": "^2.2.14"
   },
   "peerDependencies": {
-    "react": "^16.13.1"
-  },
-  "devDependencies": {
-    "@types/jest": "^26.0.0",
-    "jest": "^26.0.1"
-  },
-  "directories": {
-    "test": "test"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "react": "^15 || ^16"
   }
 }
