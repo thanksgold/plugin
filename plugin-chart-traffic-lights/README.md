@@ -1,26 +1,41 @@
-## @superset-ui/plugin-chart-traffic-lights
+## @superset-ui/legacy-preset-chart-big-number
 
-[![Version](https://img.shields.io/npm/v/@superset-ui/plugin-chart-traffic-lights.svg?style=flat-square)](https://www.npmjs.com/package/@superset-ui/plugin-chart-traffic-lights)
+[![Version](https://img.shields.io/npm/v/@superset-ui/legacy-preset-chart-big-number.svg?style=flat-square)](https://www.npmjs.com/package/@superset-ui/legacy-preset-chart-big-number)
+[![David (path)](https://img.shields.io/david/apache-superset/superset-ui-plugins.svg?path=packages%2Fsuperset-ui-legacy-preset-chart-big-number&style=flat-square)](https://david-dm.org/apache-superset/superset-ui-plugins?path=plugins/superset-ui-legacy-preset-chart-big-number)
 
-This plugin provides Traffic Lights for Superset.
+This plugin provides Big Number for Superset.
 
 ### Usage
 
-Configure `key`, which can be any `string`, and register the plugin. This `key` will be used to lookup this chart throughout the app.
+Import the preset and register. This will register the `BigNumber` and `BigNumberTotal` charts with
+key `big-number` and `big-number-total`, respectively.
 
 ```js
-import TrafficLightsChartPlugin from '@superset-ui/plugin-chart-traffic-lights';
+import { BigNumberChartPreset } from '@superset-ui/legacy-preset-chart-big-number';
 
-new TrafficLightsChartPlugin()
-  .configure({ key: 'traffic-lights' })
-  .register();
+new BigNumberChartPreset().register();
 ```
 
-Then use it via `SuperChart`. See [storybook](https://apache-superset.github.io/superset-ui/?selectedKind=plugin-chart-traffic-lights) for more details.
+or register charts one by one. Configure `key`, which can be any `string`, and register the plugin.
+This `key` will be used to lookup this chart throughout the app.
+
+```js
+import {
+  BigNumberChartPlugin,
+  BigNumberTotalChartPlugin,
+} from '@superset-ui/legacy-preset-chart-big-number';
+
+new BigNumberChartPlugin().configure({ key: 'big-number' }).register();
+new BigNumberTotalChartPlugin().configure({ key: 'big-number-total' }).register();
+```
+
+Then use it via `SuperChart`. See
+[storybook](https://apache-superset.github.io/superset-ui-plugins/?selectedKind=plugin-chart-big-number)
+for more details.
 
 ```js
 <SuperChart
-  chartType="traffic-lights"
+  chartType="big-number"
   width={600}
   height={600}
   formData={...}
@@ -28,27 +43,4 @@ Then use it via `SuperChart`. See [storybook](https://apache-superset.github.io/
     data: {...},
   }]}
 />
-```
-
-### File structure generated
-
-```
-├── package.json
-├── README.md
-├── tsconfig.json
-├── src
-│   ├── TrafficLights.tsx
-│   ├── images
-│   │   └── thumbnail.png
-│   ├── index.ts
-│   ├── plugin
-│   │   ├── buildQuery.ts
-│   │   ├── controlPanel.ts
-│   │   ├── index.ts
-│   │   └── transformProps.ts
-│   └── types.ts
-├── test
-│   └── index.test.ts
-└── types
-    └── external.d.ts
 ```
